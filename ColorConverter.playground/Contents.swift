@@ -24,7 +24,7 @@ extension UIColor {
         self.init(red: r, green: g, blue: b, alpha: a)
     }
 
-    var rgbaExport: (red: CGFloat, green: CGFloat, blue: CGFloat, alpha: CGFloat) {
+    var rgbaBase255: (red: CGFloat, green: CGFloat, blue: CGFloat, alpha: CGFloat) {
         var red: CGFloat = 0
         var green: CGFloat = 0
         var blue: CGFloat = 0
@@ -35,7 +35,7 @@ extension UIColor {
     }
     
     
-    var rgba: (red: CGFloat, green: CGFloat, blue: CGFloat, alpha: CGFloat) {
+    var rgbaBase1: (red: CGFloat, green: CGFloat, blue: CGFloat, alpha: CGFloat) {
         var red: CGFloat = 0
         var green: CGFloat = 0
         var blue: CGFloat = 0
@@ -46,7 +46,7 @@ extension UIColor {
     }
 
     var hexString: String {
-        let rgba = rgbaExport
+        let rgba = rgbaBase255
 
         var color = String(
             format: "#%02lX%02lX%02lX",
@@ -67,21 +67,3 @@ extension CGFloat {
         return CGFloat((self*d).rounded()/d)
     }
 }
-
-
-let darkest     = UIColor(hex: "#1A0233")!
-let darker      = UIColor(hex: "#3E007D")!
-let dark        = UIColor(hex: "#5908AD")!
-let base        = UIColor(hex: "#6E0AD6")!
-let light       = UIColor(hex: "#8D29F5")!
-let lighter     = UIColor(hex: "#B677F9")!
-let lightest    = UIColor(hex: "#E0C5FC")!
-
-
-print("UIColor\(darkest.rgba)")
-print("UIColor\(darker.rgba)")
-print("UIColor\(dark.rgba)")
-print("UIColor\(base.rgba)")
-print("UIColor\(light.rgba)")
-print("UIColor\(lighter.rgba)")
-print("UIColor\(lightest.rgba)")
