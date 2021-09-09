@@ -2,10 +2,15 @@ import UIKit
 
 extension UIColor {
     public convenience init?(hex: String) {
-        guard hex.hasPrefix("#") && hex.count == 9 else { return nil }
+        guard hex.hasPrefix("#") && (hex.count == 9 || hex.count == 7) else { return nil }
+        var hexa = hex
 
-        let start = hex.index(hex.startIndex, offsetBy: 1)
-        let hexColor = String(hex[start...])
+        if hex.count == 7 {
+            hexa += "FF"
+        }
+
+        let start = hexa.index(hexa.startIndex, offsetBy: 1)
+        let hexColor = String(hexa[start...])
         let scanner = Scanner(string: hexColor)
         var hexNumber: UInt64 = 0
 
@@ -64,13 +69,13 @@ extension CGFloat {
 }
 
 
-let darkest     = UIColor(hex: "#1A0233FF")!
-let darker      = UIColor(hex: "#3E007DFF")!
-let dark        = UIColor(hex: "#5908ADFF")!
-let base        = UIColor(hex: "#6E0AD6FF")!
-let light       = UIColor(hex: "#8D29F5FF")!
-let lighter     = UIColor(hex: "#B677F9FF")!
-let lightest    = UIColor(hex: "#E0C5FCFF")!
+let darkest     = UIColor(hex: "#1A0233")!
+let darker      = UIColor(hex: "#3E007D")!
+let dark        = UIColor(hex: "#5908AD")!
+let base        = UIColor(hex: "#6E0AD6")!
+let light       = UIColor(hex: "#8D29F5")!
+let lighter     = UIColor(hex: "#B677F9")!
+let lightest    = UIColor(hex: "#E0C5FC")!
 
 
 print("UIColor\(darkest.rgba)")
